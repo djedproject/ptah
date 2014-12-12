@@ -1,7 +1,5 @@
 """ uri resolve """
 import inspect
-import ptah.form
-import ptah.renderer
 from pyramid.view import view_config
 
 import ptah
@@ -12,7 +10,7 @@ from ptah.manage.manage import PtahManageRoute
 
 @view_config(
     name='uri.html', context=PtahManageRoute,
-    renderer=ptah.renderer.layout('ptah-manage:uri.lt', 'ptah-manage'))
+    renderer=ptah.layout('ptah-manage:uri.lt', 'ptah-manage'))
 
 class UriResolver(ptah.form.Form):
     """ Uri resolver form """

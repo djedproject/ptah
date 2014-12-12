@@ -8,10 +8,8 @@ from zope import interface
 from zope.interface.interface import InterfaceClass
 from pyramid.compat import configparser
 
-import ptah.form as form
-
 import ptah
-from ptah import uri, config
+from ptah import uri, config, form
 from ptah.sqlautils import JsonType
 from ptah.config import StopException
 

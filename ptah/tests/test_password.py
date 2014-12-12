@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import ptah.form
 import ptah
 from ptah import config
 from ptah.testing import TestCase, PtahTestCase

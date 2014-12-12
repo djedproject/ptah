@@ -15,7 +15,7 @@ class TestUriIntrospect(ptah.PtahTestCase):
         intr = self.registry.introspector.get(
             ID_RESOLVER, (ID_RESOLVER, 'uri-intro-test'))
 
-        rendered = self.request.render_tmpl(
+        rendered = self.request.render_template(
             'ptah-intr:ptah-uriresolver', intr,
             manage_url='/ptah-manage', rst_to_html=ptah.rst_to_html)
 
@@ -43,7 +43,7 @@ class FieldIntrospect(ptah.PtahTestCase):
 
         mod = IntrospectModule(None, self.request)
 
-        intr = mod['ptah.form:field']
+        intr = mod['djed.form:field']
 
         res = render_view_to_response(intr, self.request)
-        self.assertIn('ptah.form:field', res.text)
+        self.assertIn('djed.form:field', res.text)

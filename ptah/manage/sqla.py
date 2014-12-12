@@ -1,6 +1,4 @@
 """ sqla module """
-import ptah.form
-import ptah.renderer
 from sqlalchemy.orm.mapper import _mapper_registry
 from pyramid.view import view_config
 from pyramid.compat import url_quote_plus, text_type
@@ -85,7 +83,7 @@ class Record(object):
 
 @view_config(
     context=SQLAModule,
-    renderer=ptah.renderer.layout('ptah-manage:sqla-index.lt', 'ptah-manage'))
+    renderer=ptah.layout('ptah-manage:sqla-index.lt', 'ptah-manage'))
 
 class MainView(ptah.View):
     __doc__ = "sqlalchemy tables listing page."
@@ -148,7 +146,7 @@ def get_inheritance(table):
 
 @view_config(
     context=Table,
-    renderer=ptah.renderer.layout('ptah-manage:sqla-table.lt', 'ptah-manage'))
+    renderer=ptah.layout('ptah-manage:sqla-table.lt', 'ptah-manage'))
 
 class TableView(ptah.form.Form):
     __doc__ = "List table records."
@@ -235,7 +233,7 @@ class TableView(ptah.form.Form):
 
 @view_config(
     context=Record,
-    renderer=ptah.renderer.layout('ptah-manage:sqla-edit.lt', 'ptah-manage'))
+    renderer=ptah.layout('ptah-manage:sqla-edit.lt', 'ptah-manage'))
 
 class EditRecord(ptah.form.Form):
     __doc__ = "Edit table record."
@@ -299,7 +297,7 @@ class EditRecord(ptah.form.Form):
 
 @view_config(
     name='add.html', context=Table,
-    renderer=ptah.renderer.layout('', 'ptah-manage'))
+    renderer=ptah.layout('', 'ptah-manage'))
 
 class AddRecord(ptah.form.Form):
     """ Add new table record. """

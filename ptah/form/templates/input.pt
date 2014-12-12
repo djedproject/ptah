@@ -1,1 +1,0 @@
-<input type="${context.html_type}" tal:attributes="context.get_html_attrs()">

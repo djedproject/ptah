@@ -6,25 +6,33 @@ CHANGES
 0.9.0 (unreleased)
 ==================
 
-- Remove python 3.2 support
-
-- Add python 3.3 and 3.4 support
-
 - Pyramid 1.5 compatibility
 
-- Add `player` as `ptah.renderer`
+- Added authentication policy hash algorithm setting
 
-- Add `pform` as `ptah.form`
+- Added python 3.3 and 3.4 support
 
-- Replace `pyramid_amdjs` with `bowerstatic`
+- Removed python 3.2 support
 
-- Move MasterLayout to scaffold
+- Removed `ptah.formatter`, moved to `djed.formatter`
 
-- Add authentication policy hash algorithm setting
+- Removed MasterLayout, moved to scaffold
+
+- Removed `ptahcrowd` from starter scaffold
+
+- Use `djed.templates` for template layers
+
+- Use `djed.form` as form library
+
+- Use `djed.static` for static resource management
+
+- Use `djed.layout` for ui layouts
+
+- Use `djed.message` as messaging system
 
 - Use `pyramid_sqlalchemy`
 
-- Remove `ptahcrowd` from starter scaffold
+- Use `summernote` instead of `ckeditor`
 
 - Boostrap 3.3.1
 

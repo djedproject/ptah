@@ -1,5 +1,4 @@
 import os
-import ptah.form
 import shutil
 import tempfile
 from pyramid.compat import bytes_, text_type

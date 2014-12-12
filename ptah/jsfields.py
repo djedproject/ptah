@@ -2,13 +2,11 @@
 import ptah
 import datetime
 import pytz
-import ptah.form
-from ptah.form.interfaces import _, null, Invalid
-from ptah.form.fields import TextAreaField, DateField, DateTimeField
+from ptah import form
 
 
 @ptah.form.field('texteditor')
-class TextEditorField(TextAreaField):
+class TextEditorField(form.TextAreaField):
     """ TextEditor input widget. Field name is ``texteditor``.
 
     Extra params:
@@ -26,7 +24,7 @@ class TextEditorField(TextAreaField):
 
 
 @ptah.form.field('date')
-class JSDateField(DateField):
+class JSDateField(form.DateField):
     """Date input widget with Bootstrap Datepicker. Field name is ``date``."""
 
     klass = 'date-widget form-control'
@@ -58,7 +56,7 @@ class JSDateField(DateField):
 
 
 @ptah.form.field('datetime')
-class JSDateTimeField(DateTimeField):
+class JSDateTimeField(form.DateTimeField):
     """DateTime input widget with Bootstrap Datepicker.
     Field name is ``datetime``."""
 
@@ -72,14 +70,14 @@ class JSDateTimeField(DateTimeField):
     tmpl_input = "ptah:jsdatetime"
 
     def to_form(self, value):
-        if value is null or value is None or not value:
-            return null
+        if value is form.null or value is None or not value:
+            return form.null
 
         if type(value) is datetime.date:  # cannot use isinstance; dt subs date
             value = datetime.datetime.combine(value, datetime.time())
 
         if not isinstance(value, datetime.datetime):
-            raise Invalid(self.error_msg, self, {'val': value})
+            raise form.Invalid(self.error_msg, self, {'val': value})
 
         if value.tzinfo is None:
             value = value.replace(tzinfo=self.default_tzinfo)

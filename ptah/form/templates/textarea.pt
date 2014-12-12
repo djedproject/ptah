@@ -1,1 +1,0 @@
-<textarea tal:attributes="context.get_html_attrs()">${value}</textarea>

@@ -1,5 +1,4 @@
 """ password tool """
-import ptah.form
 import translationstring
 from os import urandom
 from datetime import timedelta

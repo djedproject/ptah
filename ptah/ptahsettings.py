@@ -3,7 +3,6 @@ import pytz
 import logging
 import sqlalchemy
 import translationstring
-import ptah.form
 from email.utils import formataddr
 from pyramid.events import ApplicationCreated
 from pyramid_mailer.interfaces import IMailer

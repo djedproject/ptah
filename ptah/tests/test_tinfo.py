@@ -1,6 +1,6 @@
-import ptah.form
 from pyramid.httpexceptions import HTTPForbidden
 from pyramid.exceptions import ConfigurationError, ConfigurationConflictError
+import ptah
 from ptah.testing import PtahTestCase, TestCase
 
 

@@ -1,5 +1,5 @@
 import pytz
-import ptah.form
+import ptah
 import decimal, datetime
 from ptah.jsfields import JSDateField, JSDateTimeField, TextEditorField
 

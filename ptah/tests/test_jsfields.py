@@ -1,13 +1,13 @@
-import ptah.form
+import ptah
+from ptah import form
 from ptah.testing import PtahTestCase
 from pyramid.compat import text_type
 
 
 def invalid_exc(func, *arg, **kw):
-    from ptah.form import Invalid
     try:
         func(*arg, **kw)
-    except Invalid as e:
+    except form.Invalid as e:
         return e
     else:
         raise AssertionError('Invalid not raised')

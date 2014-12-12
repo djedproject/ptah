@@ -1,12 +1,11 @@
 """ introspect module """
-import ptah.renderer
-from ptah.renderer import RendererNotFound
+from ptah import RendererNotFound
 from pyramid.view import view_config
 from pyramid.compat import url_unquote
 
 import ptah
 from ptah.manage import get_manage_url
-from ptah.form.directives import ID_PREVIEW
+from ptah import form
 
 
 @ptah.manage.module('introspect')
@@ -35,7 +34,7 @@ class Introspector(object):
 
 @view_config(
     context=IntrospectModule,
-    renderer=ptah.renderer.layout('ptah-manage:introspect.lt', 'ptah-manage'))
+    renderer=ptah.layout('ptah-manage:introspect.lt', 'ptah-manage'))
 
 class MainView(ptah.View):
     __doc__ = 'Introspection module view.'
@@ -48,7 +47,7 @@ class MainView(ptah.View):
 
 @view_config(
     context=Introspector,
-    renderer=ptah.renderer.layout('ptah-manage:introspect-intr.lt', 'ptah-manage'))
+    renderer=ptah.layout('ptah-manage:introspect-intr.lt', 'ptah-manage'))
 
 class IntrospectorView(ptah.View):
 
@@ -67,21 +66,21 @@ class IntrospectorView(ptah.View):
 
     def render_intr(self, intr):
         try:
-            return self.request.render_tmpl(
+            return self.request.render_template(
                 'ptah-intr:%s'%intr.type_name, intr,
                 manage_url = self.manage_url, rst_to_html = ptah.rst_to_html)
         except RendererNotFound:
-            return self.request.render_tmpl(
+            return self.request.render_template(
                 'ptah-intr:ptah-default', intr,
                 manage_url = self.manage_url, rst_to_html = ptah.rst_to_html)
 
 
-@ptah.renderer.tmpl_filter('ptah-intr:ptah.form-field')
+@ptah.template_filter('ptah-intr:ptah.form-field')
 def tmpl_formfield(context, request):
-    return {'previews': request.registry[ID_PREVIEW]}
+    return {'previews': request.registry[form.ID_PREVIEW]}
 
 
-@ptah.renderer.tmpl_filter('ptah-intr:ptah-subscriber')
+@ptah.template_filter('ptah-intr:ptah-subscriber')
 def tmpl_subscriber(intr, request):
     handler = intr['handler']
     required = intr['required']

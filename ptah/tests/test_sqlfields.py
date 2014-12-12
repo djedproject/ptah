@@ -1,6 +1,5 @@
 import transaction
 import sqlalchemy as sqla
-import ptah.form
 import ptah
 from ptah.testing import TestCase, PtahTestCase
 

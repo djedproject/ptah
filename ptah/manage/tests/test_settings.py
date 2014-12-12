@@ -1,4 +1,3 @@
-import ptah.form
 import ptah
 from ptah.testing import PtahTestCase
 from pyramid.compat import text_

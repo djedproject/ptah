@@ -9,7 +9,7 @@ from pyramid.interfaces import IRequestExtensions
 from pyramid.view import render_view_to_response
 from pyramid.path import AssetResolver
 from pyramid.path import package_name
-from ptah.renderer.renderer import render
+from ptah import render
 
 if sys.version_info[:2] == (2, 6): # pragma: no cover
     import unittest2 as unittest
@@ -114,9 +114,7 @@ class PtahTestCase(TestCase):
         self.registry = self.config.registry
 
         if self._include:
-            self.config.include('ptah.form')
-            self.config.include('ptah.renderer')
-            self.config.include('ptah.bowerstatic')
+            self.config.include('ptah')
 
         self.request = self.make_request()
         self.request.registry = self.registry

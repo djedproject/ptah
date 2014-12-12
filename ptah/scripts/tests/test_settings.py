@@ -1,6 +1,5 @@
 import sys
 import ptah
-import ptah.form
 from ptah.scripts import settings
 from ptah.testing import PtahTestCase
 from pyramid.compat import NativeIO

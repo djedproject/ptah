@@ -7,9 +7,17 @@ except ImportError: # pragma: no cover
     from ordereddict import OrderedDict
     collections.OrderedDict = OrderedDict
 
+# templates
+from djed.templates import render
+from djed.templates import RendererNotFound
+from djed.templates import template_filter
+
 # layout
-from ptah.renderer import layout
-from ptah.renderer import layout_config
+from djed.layout import layout
+from djed.layout import layout_config
+
+# form
+from djed import form
 
 
 # config
@@ -140,9 +148,12 @@ from ptah.jsfields import JSDateTimeField
 
 
 def includeme(cfg):
-    cfg.include('ptah.form')
-    cfg.include('ptah.renderer')
-    cfg.include('ptah.bowerstatic')
+    cfg.include('djed.form')
+    cfg.include('djed.formatter')
+    cfg.include('djed.layout')
+    cfg.include('djed.message')
+    cfg.include('djed.static')
+    cfg.include('djed.templates')
     cfg.include('pyramid_chameleon')
     cfg.include('pyramid_mailer')
 
@@ -246,14 +257,6 @@ def includeme(cfg):
         'ptah-manage', PtahManageRoute, root=PtahManageRoute,
         use_global_views=False, renderer="ptah-manage:layout.lt",
         view=LayoutManage, parent='ptah')
-
-    # ptah formatters
-    from ptah import formatter
-    cfg.add_formatter('date', formatter.date_formatter)
-    cfg.add_formatter('time', formatter.time_formatter)
-    cfg.add_formatter('datetime', formatter.datetime_formatter)
-    cfg.add_formatter('timedelta', formatter.timedelta_formatter)
-    cfg.add_formatter('size', formatter.size_formatter)
 
     # scan ptah
     cfg.scan('ptah')
