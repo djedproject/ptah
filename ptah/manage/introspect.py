@@ -77,7 +77,7 @@ class IntrospectorView(ptah.View):
 
 @ptah.template_filter('ptah-intr:ptah.form-field')
 def tmpl_formfield(context, request):
-    return {'previews': request.registry[form.ID_PREVIEW]}
+    return {'previews': request.registry[form.directives.ID_PREVIEW]}
 
 
 @ptah.template_filter('ptah-intr:ptah-subscriber')

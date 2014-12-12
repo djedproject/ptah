@@ -24,8 +24,8 @@ class FieldsView(ptah.View):
     def update(self):
         data = []
 
-        fields = self.request.registry[form.ID_FIELD]
-        previews = self.request.registry[form.ID_PREVIEW]
+        fields = self.request.registry[form.directives.ID_FIELD]
+        previews = self.request.registry[form.directives.ID_PREVIEW]
 
         for name, cls in fields.items():
             data.append({'name': name,
