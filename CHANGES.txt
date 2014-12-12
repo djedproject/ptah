@@ -12,7 +12,7 @@ CHANGES
 
 - Added python 3.3 and 3.4 support
 
-- Removed python 3.2 support
+- Removed python 3.2 and python 2 support
 
 - Removed `ptah.formatter`, moved to `djed.formatter`
 
