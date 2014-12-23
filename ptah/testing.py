@@ -29,6 +29,7 @@ class PtahTestCase(TestCase):
 
     _init_ptah = True
     _init_sqla = True
+    _init_mail = True
     _init_bowerstatic = True
     _include = True
     _includes = ()
@@ -101,6 +102,9 @@ class PtahTestCase(TestCase):
             Base = ptah.get_base()
             Base.metadata.create_all()
             transaction.commit()
+
+        if self._init_mail:
+            self.config.init_mailer(ptah.mail.DummyMailer())
 
         if self._trusted_manage:
             def trusted(*args):
