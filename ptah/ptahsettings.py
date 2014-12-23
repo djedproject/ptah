@@ -3,9 +3,7 @@ import pytz
 import logging
 import sqlalchemy
 import translationstring
-from email.utils import formataddr
 from pyramid.events import ApplicationCreated
-from pyramid_mailer.interfaces import IMailer
 
 import ptah
 from ptah import settings
@@ -75,16 +73,6 @@ ptah.register_settings(
         description = 'List of models to hide in model manage ui',
         default = ()),
 
-    ptah.form.TextField(
-        'email_from_name',
-        default = 'Site administrator'),
-
-    ptah.form.TextField(
-        'email_from_address',
-        validator = ptah.form.Email(),
-        required = False,
-        default = 'admin@localhost'),
-
     ptah.form.ChoiceField(
         'pwd_manager',
         title = 'Password manager',
@@ -132,34 +120,6 @@ ptah.register_settings(
 
     title = _('Ptah settings'),
 )
-
-
-def set_mailer(cfg, mailer=None):
-    def action(cfg, mailer):
-        if not mailer:
-            mailer = cfg.registry.queryUtility(IMailer).direct_delivery
-        PTAH = ptah.get_settings(ptah.CFG_ID_PTAH, cfg.registry)
-        PTAH['mailer'] = mailer
-
-    cfg.action('ptah.ptah_mailer', action, (cfg, mailer))
-
-
-class DummyMailer(object):
-
-    def send(self, from_, to_, message):
-        log.warning("Mailer is not configured.")
-        log.warning(message)
-
-
-@ptah.subscriber(ptah.events.SettingsInitializing)
-def initialized(ev):
-    PTAH = ptah.get_settings(ptah.CFG_ID_PTAH, ev.registry)
-
-    # mail
-    if PTAH.get('mailer') is None:
-        PTAH['mailer'] = DummyMailer()
-        PTAH['full_email_address'] = formataddr(
-            (PTAH['email_from_name'], PTAH['email_from_address']))
 
 
 def enable_manage(cfg, name='ptah-manage', access_manager=None,

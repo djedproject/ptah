@@ -101,7 +101,7 @@ from ptah.password import pwd_tool
 from ptah.password import password_changer
 
 # mail templates
-from ptah import mail
+from djed import mail
 
 # pagination
 from ptah.util import Pagination
@@ -151,11 +151,11 @@ def includeme(cfg):
     cfg.include('djed.form')
     cfg.include('djed.formatter')
     cfg.include('djed.layout')
+    cfg.include('djed.mail')
     cfg.include('djed.message')
     cfg.include('djed.static')
     cfg.include('djed.templates')
     cfg.include('pyramid_chameleon')
-    cfg.include('pyramid_mailer')
 
     # auth
     from ptah.security import PtahAuthorizationPolicy
@@ -194,9 +194,6 @@ def includeme(cfg):
 
     # ptah manage ui directive
     cfg.add_directive('ptah_init_manage', ptahsettings.enable_manage)
-
-    # ptah mailer directive
-    cfg.add_directive('ptah_init_mailer', ptahsettings.set_mailer)
 
     # ptah.config directives
     from ptah.config import pyramid_get_cfg_storage

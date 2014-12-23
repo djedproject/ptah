@@ -16,6 +16,8 @@ CHANGES
 
 - Removed `ptah.formatter`, moved to `djed.formatter`
 
+- Removed `ptah.mail`, moved to `djed.mail`
+
 - Removed MasterLayout, moved to scaffold
 
 - Removed `ptahcrowd` from starter scaffold
