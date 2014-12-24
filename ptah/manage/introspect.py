@@ -34,8 +34,9 @@ class Introspector(object):
 
 @view_config(
     context=IntrospectModule,
-    renderer=ptah.layout('ptah-manage:introspect.lt', 'ptah-manage'))
-
+    renderer='ptah-manage:introspect.lt',
+    layout='ptah-manage'
+)
 class MainView(ptah.View):
     __doc__ = 'Introspection module view.'
 
@@ -47,8 +48,9 @@ class MainView(ptah.View):
 
 @view_config(
     context=Introspector,
-    renderer=ptah.layout('ptah-manage:introspect-intr.lt', 'ptah-manage'))
-
+    renderer='ptah-manage:introspect-intr.lt',
+    layout='ptah-manage'
+)
 class IntrospectorView(ptah.View):
 
     def update(self):

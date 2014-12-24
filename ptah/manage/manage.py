@@ -171,7 +171,8 @@ class LayoutManage(ptah.View):
 
 @view_config(
     context=PtahManageRoute,
-    renderer=ptah.layout('ptah-manage:manage.lt', 'ptah-manage'))
+    renderer='ptah-manage:manage.lt',
+    layout='ptah-manage')
 
 class ManageView(ptah.View):
     """List ptah modules"""

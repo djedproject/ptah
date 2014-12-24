@@ -31,7 +31,7 @@ class TestLayoutPreview(ptah.PtahTestCase):
         self.init_ptah()
 
         self.config.add_view(
-            name='', context=Context, renderer=ptah.layout(), view=View)
+            name='', context=Context, view=View)
         self.config.add_layout(
             '', parent='page', context=Context,
             renderer='ptah.manage:tests/test_layout.pt')

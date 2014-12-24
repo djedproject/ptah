@@ -13,7 +13,6 @@ from djed.templates import RendererNotFound
 from djed.templates import template_filter
 
 # layout
-from djed.layout import layout
 from djed.layout import layout_config
 
 # form

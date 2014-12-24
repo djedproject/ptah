@@ -10,8 +10,8 @@ from ptah.manage.manage import PtahManageRoute
 
 @view_config(
     name='source.html', context=PtahManageRoute,
-    renderer=ptah.layout('ptah-manage:source.lt', 'ptah-manage'))
-
+    renderer='ptah-manage:source.lt', layout='ptah-manage'
+)
 class SourceView(ptah.View):
     __doc__ = 'Source introspection page.'
 

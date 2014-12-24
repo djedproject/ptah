@@ -6,8 +6,9 @@ log = logging.getLogger(__name__)
 
 
 @view_config(route_name='home',
-             renderer=ptah.layout('{{package}}:homepage.lt', '{{package}}'))
-
+             renderer='{{package}}:homepage.lt',
+             layout='{{package}}'
+)
 class HomepageView(ptah.View):
 
     def update(self):

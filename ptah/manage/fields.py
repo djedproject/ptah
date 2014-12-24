@@ -16,8 +16,9 @@ class FieldsModule(ptah.manage.PtahModule):
 
 @view_config(
     context=FieldsModule,
-    renderer=ptah.layout('ptah-manage:fields.lt', 'ptah-manage'))
-
+    renderer='ptah-manage:fields.lt',
+    layout='ptah-manage'
+)
 class FieldsView(ptah.View):
     """ Fields manage module view """
 
