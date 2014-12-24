@@ -9,7 +9,6 @@ from pyramid.interfaces import IRequestExtensions
 from pyramid.view import render_view_to_response
 from pyramid.path import AssetResolver
 from pyramid.path import package_name
-from ptah import render
 
 if sys.version_info[:2] == (2, 6): # pragma: no cover
     import unittest2 as unittest
