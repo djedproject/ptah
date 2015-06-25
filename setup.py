@@ -2,7 +2,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.8.0'
+version = '0.9.dev0'
 
 install_requires = ['setuptools',
                     'alembic >= 0.4.0, < 0.7.0',
@@ -28,16 +28,7 @@ install_requires = ['setuptools',
                     'djed.templates',
                     ]
 
-if sys.version_info[:2] == (2, 6):
-    install_requires.extend((
-            'argparse',
-            'ordereddict',
-            'unittest2'))
-
-if sys.version_info[:2] in ((2,6),(2,7)):
-    install_requires.extend(('simplejson',))
-
-tests_require = install_requires + ['nose', 'mock', 'sphinx', 'Pygments',
+tests_require = install_requires + ['nose', 'sphinx', 'Pygments',
                                     'webtest']
 
 
