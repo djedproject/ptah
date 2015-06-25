@@ -1,7 +1,7 @@
 # ptah api
 
 # templates
-from djed.templates import template_filter
+from djed.renderer import template_filter
 
 # layout
 from djed.layout import layout_config
@@ -143,8 +143,8 @@ def includeme(cfg):
     cfg.include('djed.layout')
     cfg.include('djed.mail')
     cfg.include('djed.message')
+    cfg.include('djed.renderer')
     cfg.include('djed.static')
-    cfg.include('djed.templates')
     cfg.include('pyramid_chameleon')
 
     # auth

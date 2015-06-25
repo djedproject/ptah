@@ -24,8 +24,8 @@ install_requires = ['setuptools',
                     'djed.layout',
                     'djed.mail',
                     'djed.message',
+                    'djed.renderer',
                     'djed.static',
-                    'djed.templates',
                     ]
 
 tests_require = install_requires + ['nose', 'sphinx', 'Pygments',

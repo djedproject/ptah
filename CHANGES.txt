@@ -22,7 +22,7 @@ CHANGES
 
 - Removed `ptahcrowd` from starter scaffold
 
-- Use `djed.templates` for template layers
+- Use `djed.renderer` for template layers
 
 - Use `djed.form` as form library
 
